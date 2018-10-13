@@ -15,6 +15,7 @@ public:
     // Tag interface
 public:
     QString tagName() override;
+    bool isSelfClosing() override { return false; }
 
     static QList<Div> elemenstByClass(Html *html, QString className);
 };

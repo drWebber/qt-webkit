@@ -10,13 +10,14 @@ class Table : public Tag
 public:
     Table() : Tag() { }
     Table(QString outerHtml) : Tag(outerHtml) { }
-    ~Table() { }
+    ~Table() override { }
+
+    static QList<Table> element(Html *html);
 
     // Tag interface
 public:
-    QString tagName();
-
-    static QList<Table> element(Html *html);
+    QString tagName() override;
+    bool isSelfClosing() override { return false; }
 };
 
 #endif // TABLE_H

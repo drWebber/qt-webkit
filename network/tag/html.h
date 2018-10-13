@@ -16,13 +16,10 @@ private:
 
 public:
     Html(QString outerHtml);
-    ~Html();
+    ~Html() override;
 
     HtmlDom *getHtmlDom() const;
 
-    // Tag interface
-public:
-    QString tagName();
     QString getTitle();
 
     /* удаляет весь <script.+?/script> из outerHtml */
@@ -33,6 +30,11 @@ public:
     void removeComments();
 
     void setDomain(const Domain &domain);
+
+    // Tag interface
+public:
+    QString tagName() override;
+    bool isSelfClosing() override { return false; }
 };
 
 #endif // HTML_H

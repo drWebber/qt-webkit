@@ -34,6 +34,7 @@ public:
     virtual QString innerHtml();
 
     virtual QString tagName() = 0;
+    virtual bool isSelfClosing() = 0;
 
 //    template<typename T>
 //    QList<T> elemenstByClass(const QString &className, bool selfClosing) {

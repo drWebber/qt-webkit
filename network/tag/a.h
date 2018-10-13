@@ -13,12 +13,12 @@ private:
 public:
     A() : Tag() { }
     A(QString outerHtml) : Tag(outerHtml) { }
-    ~A() { }
+    ~A() override { }
     void truncateAnchor();
     bool isExternal();
     bool isContactLink(bool excludeMailToRef);
 
-    QString tagName();
+    QString tagName() override;
     void setHost(const QString &host);
 
     static QSet<A> uniqueLinks(QList<A> &links, QString host,
@@ -26,6 +26,10 @@ public:
 
     static QList<A> element(Html *html);
     static QList<A> elementByClass(Html *html, QString className);
+
+    // Tag interface
+public:
+    bool isSelfClosing() override { return false; }
 };
 
 

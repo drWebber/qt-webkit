@@ -12,11 +12,12 @@ public:
     Header() : Tag() { }
     Header(QString outerHtml) : Tag(outerHtml) { }
 
+    static QList<Header> element(Html *html);
+
     // Tag interface
 public:
-    QString tagName();
-
-    static QList<Header> element(Html *html);
+    QString tagName() override;
+    bool isSelfClosing() override { return false; }
 };
 
 #endif // HEADER_H

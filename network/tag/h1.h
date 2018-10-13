@@ -11,11 +11,13 @@ public:
     H1() : Tag() { }
     H1(QString outerHtml) : Tag(outerHtml) { }
 
-    // Tag interface
-public:
-    QString tagName();
 
     static H1 element(Html *html);
+
+    // Tag interface
+public:
+    QString tagName() override;
+    bool isSelfClosing() override { return false; }
 };
 
 #endif // H1_H

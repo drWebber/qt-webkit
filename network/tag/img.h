@@ -11,13 +11,14 @@ class Img : public Tag
 public:
     Img() : Tag() { }
     Img(QString outerHtml) : Tag(outerHtml) { }
-    ~Img() { }
+    ~Img() override { }
+
+    static QList<Img> element(Html *html);
 
     // Tag interface
 public:
-    QString tagName();
-
-    static QList<Img> element(Html *html);
+    QString tagName() override;
+    bool isSelfClosing() override { return true; }
 };
 
 #endif // IMG_H

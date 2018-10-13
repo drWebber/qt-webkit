@@ -12,9 +12,12 @@ public:
     Button() : Tag() { }
     Button(QString outerHtml) : Tag(outerHtml) { }
 
-    QString tagName();
-
     static QList<Button> element(Html *html);
+
+    // Tag interface
+public:
+    QString tagName() override;
+    bool isSelfClosing() override { return false; }
 };
 
 #endif // BUTTON_H

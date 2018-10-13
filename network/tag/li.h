@@ -10,14 +10,15 @@ class Li : public Tag
 public:
     Li() { }
     Li(QString outerHtml) : Tag(outerHtml) { }
-    ~Li() { }
+    ~Li() override { }
+
+    static QList<Li> element(Html *html);
+    static QList<Li> elementByClass(Html *html, QString className);
 
     // Tag interface
 public:
     QString tagName() override;
-
-    static QList<Li> element(Html *html);
-    static QList<Li> elementByClass(Html *html, QString className);
+    bool isSelfClosing() override { return false; }
 };
 
 #endif // LI_H

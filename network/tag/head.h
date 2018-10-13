@@ -11,10 +11,14 @@ public:
     Head() : Tag() { }
     Head(QString outerHtml) : Tag(outerHtml) { }
 public:
-    QString innerText();
-    QString tagName();
+    QString innerText() override;
 
     static Head element(Html *html);
+
+    // Tag interface
+public:
+    QString tagName() override;
+    bool isSelfClosing() override { return false; }
 };
 
 #endif // HEAD_H
