@@ -2,12 +2,12 @@
 
 #include <filereader/filereader.h>
 
-#include <network/tag/a.h>
-#include <network/tag/div.h>
-#include <network/tag/html.h>
-#include <network/tag/li.h>
-#include <network/tag/ol.h>
-#include <network/tag/ul.h>
+#include <webkit/tag/a.h>
+#include <webkit/tag/div.h>
+#include <webkit/tag/html.h>
+#include <webkit/tag/li.h>
+#include <webkit/tag/ol.h>
+#include <webkit/tag/ul.h>
 
 // add necessary includes here
 

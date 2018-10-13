@@ -41,7 +41,7 @@ void Html::removeCssFromHtml()
     RegExp::replace("(?si)<style.+?/style>", _outerHtml, "");
 }
 
-void Html::removeComments()
+void Html::removeCodeComments()
 {
     RegExp::replace("(?si)<!--.+?-->", _outerHtml, "");
 }

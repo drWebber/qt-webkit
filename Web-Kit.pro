@@ -7,45 +7,45 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES +=  tst_webkittest.cpp \
-    network/tag/a.cpp \
-    network/tag/body.cpp \
-    network/tag/button.cpp \
-    network/tag/div.cpp \
-    network/tag/h1.cpp \
-    network/tag/head.cpp \
-    network/tag/header.cpp \
-    network/tag/html.cpp \
-    network/tag/img.cpp \
-    network/tag/li.cpp \
-    network/tag/span.cpp \
-    network/tag/table.cpp \
-    network/tag/tag.cpp \
-    network/domain.cpp \
+    webkit/tag/a.cpp \
+    webkit/tag/body.cpp \
+    webkit/tag/button.cpp \
+    webkit/tag/div.cpp \
+    webkit/tag/h1.cpp \
+    webkit/tag/head.cpp \
+    webkit/tag/header.cpp \
+    webkit/tag/html.cpp \
+    webkit/tag/img.cpp \
+    webkit/tag/li.cpp \
+    webkit/tag/span.cpp \
+    webkit/tag/table.cpp \
+    webkit/tag/tag.cpp \
+    webkit/domain.cpp \
     filereader/filereader.cpp \
     util/regexp.cpp \
-    network/tag/htmldom.cpp \
-    network/tag/retrievable.cpp \
-    network/tag/ul.cpp \
-    network/tag/ol.cpp
+    webkit/tag/htmldom.cpp \
+    webkit/tag/retrievable.cpp \
+    webkit/tag/ul.cpp \
+    webkit/tag/ol.cpp
 
 HEADERS += \
-    network/tag/a.h \
-    network/tag/body.h \
-    network/tag/button.h \
-    network/tag/div.h \
-    network/tag/h1.h \
-    network/tag/head.h \
-    network/tag/header.h \
-    network/tag/html.h \
-    network/tag/img.h \
-    network/tag/li.h \
-    network/tag/span.h \
-    network/tag/table.h \
-    network/tag/tag.h \
-    network/domain.h \
+    webkit/tag/a.h \
+    webkit/tag/body.h \
+    webkit/tag/button.h \
+    webkit/tag/div.h \
+    webkit/tag/h1.h \
+    webkit/tag/head.h \
+    webkit/tag/header.h \
+    webkit/tag/html.h \
+    webkit/tag/img.h \
+    webkit/tag/li.h \
+    webkit/tag/span.h \
+    webkit/tag/table.h \
+    webkit/tag/tag.h \
+    webkit/domain.h \
     filereader/filereader.h \
     util/regexp.h \
-    network/tag/htmldom.h \
-    network/tag/retrievable.h \
-    network/tag/ul.h \
-    network/tag/ol.h
+    webkit/tag/htmldom.h \
+    webkit/tag/retrievable.h \
+    webkit/tag/ul.h \
+    webkit/tag/ol.h

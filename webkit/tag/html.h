@@ -1,7 +1,7 @@
 #ifndef HTML_H
 #define HTML_H
 
-#include "network/domain.h"
+#include "webkit/domain.h"
 #include "tag.h"
 #include "htmldom.h"
 
@@ -27,7 +27,7 @@ public:
     /* удаляет весь <style.+?/style> из outerHtml */
     void removeCssFromHtml();
     /* удаляет весь <!--.+?--> из outerHtml */
-    void removeComments();
+    void removeCodeComments();
 
     void setDomain(const Domain &domain);
 
