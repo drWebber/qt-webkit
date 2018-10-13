@@ -5,3 +5,7 @@ QString Li::name()
 {
     return "li";
 }
+
+bool Li::isSelfClosing() {
+    return false;
+}

@@ -21,13 +21,13 @@ public:
 
     template<typename T>
     QList<T> childElementsByClass(const QString &className) {
-        return Html(_outerHtml).elementsByClass<T>(className);
+        return Html(_outerHtml).childElementsByClass<T>(className);
     }
 
     template<typename T>
     QList<T> childElementsByParameter(const QString &param,
                                       const QString &value) {
-        return Html(_outerHtml).elementsByParameter<T>(param, value);
+        return Html(_outerHtml).childElementsByParameter<T>(param, value);
     }
 };
 

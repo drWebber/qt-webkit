@@ -42,12 +42,13 @@ public:
     }
 
     template<typename T>
-    QList<T> elementsByClass(const QString &className) {
+    QList<T> childElementsByClass(const QString &className) {
         return htmlDom->elementsByClass<T>(className);
     }
 
     template<typename T>
-    QList<T> elementsByParameter(const QString &param, const QString &value) {
+    QList<T> childElementsByParameter(
+            const QString &param, const QString &value) {
         return htmlDom->elementsByParameter<T>(param, value);
     }
 

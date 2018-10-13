@@ -16,7 +16,7 @@ public:
     // Tag interface
 public:
     QString name() override;
-    bool isSelfClosing() override { return false; }
+    bool isSelfClosing() override;
 };
 
 #endif // LI_H
