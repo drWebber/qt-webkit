@@ -16,7 +16,7 @@ public:
 
     template<typename T>
     QList<T> childElements() {
-        return Html(_outerHtml).elements<T>();
+        return Html(_outerHtml).childElements<T>();
     }
 
     template<typename T>

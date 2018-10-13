@@ -80,7 +80,7 @@ void WebKitTest::testTagDiv()
 
 void WebKitTest::testTagUl()
 {
-    QList<Ul> ulList = html->elements<Ul>();
+    QList<Ul> ulList = html->childElements<Ul>();
     QCOMPARE(ulList.size(), 1);
 
     QList<Li> liList = ulList.first().childElements<Li>();

@@ -32,7 +32,7 @@ public:
     void setDomain(const Domain &domain);
 
     template<typename T>
-    QList<T> elements() {
+    QList<T> childElements() {
         Tag *tag = new T();
         QString name = tag->name();
         bool selfClosing = tag->isSelfClosing();
