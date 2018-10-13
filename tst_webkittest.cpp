@@ -35,7 +35,7 @@ WebKitTest::~WebKitTest()
 
 void WebKitTest::testTagA()
 {
-    QList<A> links = A::elementByClass(html, "testLink");
+    QList<A> links = html->elementsByClass<A>("testLink");
     QCOMPARE(links.size(), 5);
 
     A link = links.first();
@@ -54,14 +54,14 @@ void WebKitTest::testTagA()
     QCOMPARE(link.customAttribute("accesskey"), "2");
     QCOMPARE(link.customAttribute("data-log-node"), "8xnu");
 
-    QCOMPARE(A::elementByClass(html, "link_theme_normal").size(), 1);
-    QCOMPARE(A::elementByClass(html, "daria-goto-anchor").size(), 1);
+    QCOMPARE(html->elementsByClass<A>("link_theme_normal").size(), 1);
+    QCOMPARE(html->elementsByClass<A>("daria-goto-anchor").size(), 1);
 
 }
 
 void WebKitTest::testTagDiv()
 {
-    QList<Div> divs = Div::elemenstByClass(html, "serp-item");
+    QList<Div> divs = html->elementsByClass<Div>("serp-item");
 
     for (auto i = 0; i < divs.size(); i++) {
         QVERIFY(divs[i].classAttribute().contains("serp-item"));
@@ -69,6 +69,8 @@ void WebKitTest::testTagDiv()
     }
 
     QCOMPARE(divs.size(), 9);
+    QCOMPARE(divs.first().childElementsByClass<Div>("serp-item__text").first().innerText(),
+             "Триллер, криминал, детектив. Режиссер: Хенрик Георгссон, Румле Хаммерих, Шарлотта Зилинг и др. В ролях: София Хелин, Ким Бодния, Туре Линдхардт и др. На самой середине Эресуннского моста, связывающего Швецию с Данией, происходит краткое отключение эл...");
 }
 
 QTEST_APPLESS_MAIN(WebKitTest)

@@ -2,22 +2,22 @@
 #define BODY_H
 
 #include "html.h"
+#include "retrievable.h"
 #include "tag.h"
 #include <qdebug.h>
 
-class Body : public Tag
+
+class Body : public Tag, public Retrievable
 {
 public:
-    Body() : Tag() { }
-    Body(QString outerHtml) : Tag(outerHtml) { }
+    Body() : Tag(), Retrievable ("") { }
+    Body(QString outerHtml) : Tag(outerHtml), Retrievable (outerHtml) { }
 public:
-    QString innerText() override;
-    QString tagName() override;
+    QString innerText();
+    QString name() override;
 
     int cyrillicSymbolsCount();
     QStringList getPhoneNumbers();
-
-    static Body element(Html *html);
 
     // Tag interface
 public:

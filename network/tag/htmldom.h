@@ -131,6 +131,29 @@ public:
         return result;
     }
 
+    template<typename T>
+    QList<T> elementsByClass(const QString &className) {
+        Tag *tag = new T();
+        QString name = tag->name();
+        bool selfClosing = tag->isSelfClosing();
+        delete tag;
+
+        return tagListByAttribute<T>("class", className,
+                                     name, selfClosing);
+    }
+
+    template<typename T>
+    QList<T> elementsByParameter(const QString &param, const QString &value) {
+        // Example: <div param="value">text</div>
+        Tag *tag = new T();
+        QString name = tag->name();
+        bool selfClosing = tag->isSelfClosing();
+        delete tag;
+
+        return tagListByAttribute<T>(param, value,
+                                     name, selfClosing);
+    }
+
     QList<int> tagStartPositions(const QString &tagName);
 };
 

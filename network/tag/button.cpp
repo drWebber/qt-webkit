@@ -1,13 +1,7 @@
 #include "button.h"
 
 
-QString Button::tagName()
+QString Button::name()
 {
     return "button";
-}
-
-QList<Button> Button::element(Html *html)
-{
-    HtmlDom *htmlDom = html->getHtmlDom();
-    return htmlDom->tagList<Button>("button", false);
 }

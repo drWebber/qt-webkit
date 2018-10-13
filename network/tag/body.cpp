@@ -1,14 +1,14 @@
 #include "body.h"
 
 
-QString Body::tagName()
+QString Body::name()
 {
     return "body";
 }
 
 QString Body::innerText()
 {
-    QString text = _outerHtml;
+    QString text = outerHtml();
     RegExp::replace("(?si)<script.+?/script>", text, "");
     RegExp::replace("(?si)</?p>|<p\\s.+?>", text, "\r\n");
     RegExp::replace("<br/?>|<br\\s.+?>", text, "\r\n");
@@ -42,11 +42,4 @@ QStringList Body::getPhoneNumbers()
     }
 
     return phones;
-}
-
-Body Body::element(Html *html)
-{
-    HtmlDom *htmlDom = html->getHtmlDom();
-    QList<Body> body = htmlDom->tagList<Body>("body", false);
-    return body.isEmpty() ? Body() : body.first();
 }

@@ -31,9 +31,29 @@ public:
 
     void setDomain(const Domain &domain);
 
+    template<typename T>
+    QList<T> elements() {
+        Tag *tag = new T();
+        QString name = tag->name();
+        bool selfClosing = tag->isSelfClosing();
+        delete tag;
+
+        return htmlDom->tagList<T>(name, selfClosing);
+    }
+
+    template<typename T>
+    QList<T> elementsByClass(const QString &className) {
+        return htmlDom->elementsByClass<T>(className);
+    }
+
+    template<typename T>
+    QList<T> elementsByParameter(const QString &param, const QString &value) {
+        return htmlDom->elementsByParameter<T>(param, value);
+    }
+
     // Tag interface
 public:
-    QString tagName() override;
+    QString name() override;
     bool isSelfClosing() override { return false; }
 };
 

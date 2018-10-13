@@ -21,7 +21,7 @@ Html::~Html()
     delete htmlDom;
 }
 
-QString Html::tagName()
+QString Html::name()
 {
     return "html";
 }

@@ -2,23 +2,21 @@
 #define SPAN_H
 
 #include "html.h"
+#include "retrievable.h"
 #include "tag.h"
 
 
 
-class Span : public Tag
+class Span : public Tag, public Retrievable
 {
 public:
-    Span() { }
-    Span(QString outerHtml) : Tag(outerHtml) { }
+    Span() : Tag(), Retrievable ("") { }
+    Span(QString outerHtml) : Tag(outerHtml), Retrievable (outerHtml) { }
     ~Span() override { }
-
-    static QList<Span> element(Html *html);
-    static QList<Span> elementByClass(Html *html, QString className);
 
     // Tag interface
 public:
-    QString tagName() override;
+    QString name() override;
     bool isSelfClosing() override { return false; }
 };
 

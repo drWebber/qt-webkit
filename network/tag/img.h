@@ -13,11 +13,9 @@ public:
     Img(QString outerHtml) : Tag(outerHtml) { }
     ~Img() override { }
 
-    static QList<Img> element(Html *html);
-
     // Tag interface
 public:
-    QString tagName() override;
+    QString name() override;
     bool isSelfClosing() override { return true; }
 };
 

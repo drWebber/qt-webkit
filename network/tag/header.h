@@ -16,7 +16,7 @@ public:
 
     // Tag interface
 public:
-    QString tagName() override;
+    QString name() override;
     bool isSelfClosing() override { return false; }
 };
 

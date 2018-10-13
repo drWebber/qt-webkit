@@ -50,7 +50,7 @@ bool Tag::isEmpty()
 
 QString Tag::innerText()
 {
-    QString str = RegExp::match("(?si)>(.+)</" + tagName() + ">",
+    QString str = RegExp::match("(?si)>(.+)</" + name() + ">",
                                 _outerHtml, 1);
     RegExp::replace("<.+?>", str, "");
     return str;
@@ -58,7 +58,7 @@ QString Tag::innerText()
 
 QString Tag::innerHtml()
 {
-    return RegExp::match("(?si)>(.+)</" + tagName() + ">", _outerHtml, 1);
+    return RegExp::match("(?si)>(.+)</" + name() + ">", _outerHtml, 1);
 }
 
 QString Tag::getAttrValue(const QString attr) const

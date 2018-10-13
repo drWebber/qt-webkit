@@ -2,22 +2,21 @@
 #define HEAD_H
 
 #include "html.h"
+#include "retrievable.h"
 #include "tag.h"
 
 
-class Head : public Tag
+class Head : public Tag, public Retrievable
 {
 public:
-    Head() : Tag() { }
-    Head(QString outerHtml) : Tag(outerHtml) { }
+    Head() : Tag(), Retrievable ("") { }
+    Head(QString outerHtml) : Tag(outerHtml), Retrievable (outerHtml) { }
 public:
-    QString innerText() override;
-
-    static Head element(Html *html);
+    QString innerText();
 
     // Tag interface
 public:
-    QString tagName() override;
+    QString name() override;
     bool isSelfClosing() override { return false; }
 };
 

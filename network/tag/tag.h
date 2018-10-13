@@ -29,18 +29,12 @@ public:
     QString titleAttribute() const;
     bool isEmpty();
     /* видимый текст внутри тега (с удалением разметки) */
-    virtual QString innerText();
+    QString innerText();
     /* разметка внутри тега */
-    virtual QString innerHtml();
+    QString innerHtml();
 
-    virtual QString tagName() = 0;
+    virtual QString name() = 0;
     virtual bool isSelfClosing() = 0;
-
-//    template<typename T>
-//    QList<T> elemenstByClass(const QString &className, bool selfClosing) {
-//        return HtmlDom(_outerHtml)
-//                .tagListByAttribute<T>("class", className, "div", selfClosing);
-//    }
 };
 
 #endif // TAG_H

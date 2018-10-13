@@ -2,22 +2,20 @@
 #define LI_H
 
 #include "html.h"
+#include "retrievable.h"
 #include "tag.h"
 
 
-class Li : public Tag
+class Li : public Tag, public Retrievable
 {
 public:
-    Li() { }
-    Li(QString outerHtml) : Tag(outerHtml) { }
+    Li() : Tag(), Retrievable ("") { }
+    Li(QString outerHtml) : Tag(outerHtml), Retrievable (outerHtml) { }
     ~Li() override { }
-
-    static QList<Li> element(Html *html);
-    static QList<Li> elementByClass(Html *html, QString className);
 
     // Tag interface
 public:
-    QString tagName() override;
+    QString name() override;
     bool isSelfClosing() override { return false; }
 };
 

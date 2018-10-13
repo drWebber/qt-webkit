@@ -1,6 +1,6 @@
 #include "head.h"
 
-QString Head::tagName()
+QString Head::name()
 {
     return "head";
 }
@@ -8,11 +8,4 @@ QString Head::tagName()
 QString Head::innerText()
 {
     return "";
-}
-
-Head Head::element(Html *html)
-{
-    HtmlDom *htmlDom = html->getHtmlDom();
-    QList<Head> head = htmlDom->tagList<Head>("head", false);
-    return head.isEmpty() ? Head() : head.first();
 }

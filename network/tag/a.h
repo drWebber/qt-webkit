@@ -2,30 +2,28 @@
 #define A_H
 
 #include "network/tag/html.h"
+#include "retrievable.h"
 #include "tag.h"
 #include <QtCore/qhash.h>
 #include <qset.h>
 
-class A : public Tag
+class A : public Tag, public Retrievable
 {
 private:
     QString host;
 public:
-    A() : Tag() { }
-    A(QString outerHtml) : Tag(outerHtml) { }
+    A() : Tag(), Retrievable ("") { }
+    A(QString outerHtml) : Tag(outerHtml), Retrievable (outerHtml) { }
     ~A() override { }
     void truncateAnchor();
     bool isExternal();
     bool isContactLink(bool excludeMailToRef);
 
-    QString tagName() override;
+    QString name() override;
     void setHost(const QString &host);
 
     static QSet<A> uniqueLinks(QList<A> &links, QString host,
                                bool truncateAnchors, bool excludeContactLinks);
-
-    static QList<A> element(Html *html);
-    static QList<A> elementByClass(Html *html, QString className);
 
     // Tag interface
 public:

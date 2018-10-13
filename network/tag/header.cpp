@@ -1,6 +1,6 @@
 #include "header.h"
 
-QString Header::tagName()
+QString Header::name()
 {
     return "h\\d";
 }

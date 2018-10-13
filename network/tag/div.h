@@ -2,22 +2,21 @@
 #define DIV_H
 
 #include "html.h"
+#include "retrievable.h"
 #include "tag.h"
 
 
-class Div : public Tag
+class Div : public Tag, public Retrievable
 {
 public:
-    Div() : Tag() { }
-    Div(QString outerHtml) : Tag(outerHtml) { }
+    Div() : Tag(), Retrievable ("") { }
+    Div(QString outerHtml) : Tag(outerHtml), Retrievable (outerHtml) { }
     ~Div() override { }
 
     // Tag interface
 public:
-    QString tagName() override;
-    bool isSelfClosing() override { return false; }
-
-    static QList<Div> elemenstByClass(Html *html, QString className);
+    QString name() override;
+    bool isSelfClosing() override;
 };
 
 #endif // DIV_H

@@ -88,19 +88,7 @@ QSet<A> A::uniqueLinks(QList<A> &links, QString host,
     return set;
 }
 
-QList<A> A::element(Html *html)
-{
-    HtmlDom *htmlDom = html->getHtmlDom();
-    return htmlDom->tagList<A>("a", false);
-}
-
-QList<A> A::elementByClass(Html *html, QString className)
-{
-    HtmlDom *dom = html->getHtmlDom();
-    return dom->tagListByAttribute<A>("class", className, "a", false);
-}
-
-QString A::tagName()
+QString A::name()
 {
     return "a";
 }

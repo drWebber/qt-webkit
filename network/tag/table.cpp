@@ -1,12 +1,10 @@
 #include "table.h"
 
-QString Table::tagName()
+QString Table::name()
 {
     return "table";
 }
 
-QList<Table> Table::element(Html *html)
-{
-    HtmlDom *htmlDom = html->getHtmlDom();
-    return htmlDom->tagList<Table>("img", false);
+bool Table::isSelfClosing() {
+    return false;
 }

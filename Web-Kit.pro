@@ -23,7 +23,8 @@ SOURCES +=  tst_webkittest.cpp \
     network/domain.cpp \
     filereader/filereader.cpp \
     util/regexp.cpp \
-    network/tag/htmldom.cpp
+    network/tag/htmldom.cpp \
+    network/tag/retrievable.cpp
 
 HEADERS += \
     network/tag/a.h \
@@ -42,4 +43,5 @@ HEADERS += \
     network/domain.h \
     filereader/filereader.h \
     util/regexp.h \
-    network/tag/htmldom.h
+    network/tag/htmldom.h \
+    network/tag/retrievable.h
