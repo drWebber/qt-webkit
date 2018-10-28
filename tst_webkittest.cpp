@@ -4,6 +4,12 @@
 
 #include <webkit/tag/a.h>
 #include <webkit/tag/div.h>
+#include <webkit/tag/h1.h>
+#include <webkit/tag/h2.h>
+#include <webkit/tag/h3.h>
+#include <webkit/tag/h4.h>
+#include <webkit/tag/h5.h>
+#include <webkit/tag/h6.h>
 #include <webkit/tag/html.h>
 #include <webkit/tag/li.h>
 #include <webkit/tag/ol.h>
@@ -25,6 +31,7 @@ private slots:
     void testTagDiv();
     void testTagUl();
     void testTagOl();
+    void testHeaders();
 
 };
 
@@ -95,6 +102,27 @@ void WebKitTest::testTagOl()
     QList<Li> liList = olList.first().childElements<Li>();
     QCOMPARE(liList.last().innerText(), "j");
 
+}
+
+void WebKitTest::testHeaders()
+{
+    QList<H1> h1List = html->childElements<H1>();
+    QCOMPARE(1, h1List.size());
+
+    QList<H2> h2List = html->childElements<H2>();
+    QCOMPARE(3, h2List.size());
+
+    QList<H3> h3List = html->childElements<H3>();
+    QCOMPARE(2, h3List.size());
+
+    QList<H4> h4List = html->childElements<H4>();
+    QCOMPARE(1, h4List.size());
+
+//    QList<H5> h5List = html->childElements<H5>();
+//    QCOMPARE(2, h5List.size());
+
+//    QList<H6> h6List = html->childElements<H6>();
+//    QCOMPARE(2, h6List.size());
 }
 
 QTEST_APPLESS_MAIN(WebKitTest)

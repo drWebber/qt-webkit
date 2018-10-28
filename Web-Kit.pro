@@ -26,7 +26,12 @@ SOURCES +=  tst_webkittest.cpp \
     webkit/tag/htmldom.cpp \
     webkit/tag/retrievable.cpp \
     webkit/tag/ul.cpp \
-    webkit/tag/ol.cpp
+    webkit/tag/ol.cpp \
+    webkit/tag/h2.cpp \
+    webkit/tag/h3.cpp \
+    webkit/tag/h4.cpp \
+    webkit/tag/h5.cpp \
+    webkit/tag/h6.cpp
 
 HEADERS += \
     webkit/tag/a.h \
@@ -48,4 +53,12 @@ HEADERS += \
     webkit/tag/htmldom.h \
     webkit/tag/retrievable.h \
     webkit/tag/ul.h \
-    webkit/tag/ol.h
+    webkit/tag/ol.h \
+    webkit/tag/h2.h \
+    webkit/tag/h3.h \
+    webkit/tag/h4.h \
+    webkit/tag/h5.h \
+    webkit/tag/h6.h
+
+DISTFILES += \
+    sources/html.html
