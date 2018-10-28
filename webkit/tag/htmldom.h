@@ -15,7 +15,7 @@ private:
     int rawHtmlSize;
 
 public:
-    HtmlDom(QString rawHtml);
+    HtmlDom(const QString &rawHtml);
     ~HtmlDom() { }
 
     template<typename T>

@@ -1,6 +1,6 @@
 #include "htmldom.h"
 
-HtmlDom::HtmlDom(QString rawHtml)
+HtmlDom::HtmlDom(const QString &rawHtml)
 {
     this->rawHtml = rawHtml;
     rawHtmlSize = rawHtml.size();
@@ -12,7 +12,9 @@ HtmlDom::HtmlDom(QString rawHtml)
     for (int i = 0; i < rawHtmlSize; ++i) {
         if (tagFound) {
             if (rawHtml.at(i) == '>' || rawHtml.at(i) == ' ') {
-                dom.insert(pos, buf);
+                // buf.toLower() позволяет далее находить теги с малой и большой
+                // буквы <tag> && <TAG>
+                dom.insert(pos, buf.toLower());
                 buf.clear();
                 tagFound = false;
             } else {
