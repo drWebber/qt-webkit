@@ -32,6 +32,7 @@ private slots:
     void testTagUl();
     void testTagOl();
     void testHeaders();
+    void testArticle();
 
 };
 
@@ -113,7 +114,7 @@ void WebKitTest::testHeaders()
     QCOMPARE(3, h2List.size());
 
     QList<H3> h3List = html->childElements<H3>();
-    QCOMPARE(2, h3List.size());
+    QCOMPARE(3, h3List.size());
 
     QList<H4> h4List = html->childElements<H4>();
     QCOMPARE(1, h4List.size());
@@ -122,7 +123,14 @@ void WebKitTest::testHeaders()
 //    QCOMPARE(2, h5List.size());
 
 //    QList<H6> h6List = html->childElements<H6>();
-//    QCOMPARE(2, h6List.size());
+    //    QCOMPARE(2, h6List.size());
+}
+
+void WebKitTest::testArticle()
+{
+    Div article = html->article<Div>();
+    QCOMPARE(3, article.childElements<H3>().size());
+    QCOMPARE(1, article.childElements<H1>().size());
 }
 
 QTEST_APPLESS_MAIN(WebKitTest)

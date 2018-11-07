@@ -32,6 +32,11 @@ public:
     void setDomain(const Domain &domain);
 
     template<typename T>
+    T article() {
+        return htmlDom->article<T>();
+    }
+
+    template<typename T>
     QList<T> childElements() {
         Tag *tag = new T();
         QString name = tag->name();

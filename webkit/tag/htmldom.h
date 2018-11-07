@@ -22,6 +22,40 @@ public:
     ~HtmlDom() { }
 
     template<typename T>
+    T article() {
+        Tag *tag = new T();
+
+        int headlineStartPos = tagStartPositions("h1").first();
+
+        QList<int> candidatesStartPos;
+        QMap<int, QString>::iterator it;
+        for (it = dom.begin(); it != dom.end(); ++it) {
+            if (it.key() >= headlineStartPos) {
+                break;
+            } else if (it.value() == tag->name()) {
+                candidatesStartPos << it.key();
+            }
+        }
+
+        QList<QPair<int, int>> candidates;
+        foreach (int startPos, candidatesStartPos) {
+            candidates << findTagPosition(
+                              startPos, tag->name(), tag->isSelfClosing());
+        }
+
+        QPair<int, int> candidate;
+        QString excerpt;
+        foreach (candidate, candidates) {
+            excerpt = rawHtml.mid(candidate.first,
+                                          (candidate.second - candidate.first));
+            if (excerpt.contains(QRegularExpression("<h1.+?/h1>"))) {
+                return T(excerpt);
+            }
+        }
+        return T("");
+    }
+
+    template<typename T>
     QList<T> tagList(const QString &tag, bool selfClosing) {
         QList<T> result;
         foreach (int startPos, tagStartPositions(tag)) {
