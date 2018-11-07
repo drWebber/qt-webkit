@@ -3,16 +3,19 @@
 
 #include "tag.h"
 
-#include <QMultiMap>
-
+#include <QMap>
 
 
 class HtmlDom
 {
 private:
-    QMultiMap<int, QString> dom;
+    QMap<int, QString> dom;
     QString rawHtml;
-    int rawHtmlSize;
+    int rawHtmlSize;    
+
+    QList<int> tagStartPositions(const QString &tagName);
+    QPair<int, int> findTagPosition(
+            const int startPos, const QString &tag, bool selfClosing);
 
 public:
     HtmlDom(const QString &rawHtml);
@@ -21,38 +24,12 @@ public:
     template<typename T>
     QList<T> tagList(const QString &tag, bool selfClosing) {
         QList<T> result;
-        QString closingTag = '/' + tag;
-        int startPos, endPos;
-        int balance = 0; // баланс между откр/закр тегами
-        int tagApndx = tag.count() + 3; //"<" + "/" + tag + ">"
-        QString val;
-        QMultiMap<int, QString>::iterator it;
-        QMultiMap<int, QString>::iterator itEnd = dom.end();
-
-        foreach (startPos, tagStartPositions(tag)) {
-            it = dom.find(startPos, tag);
-            balance = 0;
-            while (it != itEnd) {
-                val = it.value();
-                if (selfClosing) {
-                    if (val == "/>") {
-                        endPos = it.key() + 1;
-                        result << T(rawHtml.mid(startPos, (endPos - startPos)));
-                        break;
-                    }
-                } else {
-                    if (val == closingTag) {
-                        --balance;
-                        if (balance == 0) {
-                            endPos = it.key() + tagApndx;
-                            result << T(rawHtml.mid(startPos, (endPos - startPos)));
-                            break;
-                        }
-                    } else if (val == tag) {
-                        ++balance;
-                    }
-                }
-                ++it;
+        foreach (int startPos, tagStartPositions(tag)) {
+            QPair<int, int> position =
+                    findTagPosition(startPos, tag, selfClosing);
+            if (position.second != -1) {
+                result << T(rawHtml.mid(position.first,
+                                        (position.second - position.first)));
             }
         }
         return result;
@@ -153,8 +130,6 @@ public:
         return tagListByAttribute<T>(param, value,
                                      name, selfClosing);
     }
-
-    QList<int> tagStartPositions(const QString &tagName);
 };
 
 #endif // HTMLDOM_H
