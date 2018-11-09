@@ -25,7 +25,12 @@ public:
     T article() {
         Tag *tag = new T();
 
-        int headlineStartPos = tagStartPositions("h1").first();
+        QList<int> positions = tagStartPositions("h1");
+        if (positions.isEmpty()) {
+            return T("");
+        }
+
+        int headlineStartPos = positions.first();
 
         QList<int> candidatesStartPos;
         QMap<int, QString>::iterator it;
