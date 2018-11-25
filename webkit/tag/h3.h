@@ -1,7 +1,6 @@
 #ifndef H3_H
 #define H3_H
 
-#include "html.h"
 #include "retrievable.h"
 #include "tag.h"
 

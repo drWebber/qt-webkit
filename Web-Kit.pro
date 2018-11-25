@@ -31,7 +31,8 @@ SOURCES +=  tst_webkittest.cpp \
     webkit/tag/h3.cpp \
     webkit/tag/h4.cpp \
     webkit/tag/h5.cpp \
-    webkit/tag/h6.cpp
+    webkit/tag/h6.cpp \
+    webkit/tag/textarea.cpp
 
 HEADERS += \
     webkit/tag/a.h \
@@ -58,7 +59,8 @@ HEADERS += \
     webkit/tag/h3.h \
     webkit/tag/h4.h \
     webkit/tag/h5.h \
-    webkit/tag/h6.h
+    webkit/tag/h6.h \
+    webkit/tag/textarea.h
 
 DISTFILES += \
     sources/html.html
